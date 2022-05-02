@@ -39,7 +39,7 @@
     "deploy": "npm run css-deploy && npm run js-build",
     "js-build": "parcel src/*",
     "js-watch": "npm run js-build -- --watch",
-    "start": "cross-env npm-run-all --parallel css-watch js-watch"
+    "start": "npx parcel index.html"
   },
   "version": "0.0.4",
   "dependencies": {
