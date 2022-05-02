@@ -1,0 +1,11 @@
+{
+  "name": "master-web-performance",
+  "version": "1.0.0",
+  "description": "## Requirements - [Docker](https://www.docker.com/) - Change MARVEL_API_KEY and MARVEL_SECRET_KEY keys of `api/.env` file to your own.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

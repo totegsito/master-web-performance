@@ -1,0 +1,21 @@
+version: 3.8.1
+services:
+  redis:
+    image: redis:3-alpine
+    volumes:
+      - ~/data/redis:/data/redis
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./api/.env
+    environment:
+      - MONGO_HOST=mongo
+      - REDIS_HOST=redis
+    ports:
+      - "4001:8080"
+    depends_on:
+      - redis
+      - mongo
