@@ -1,29 +1,16 @@
 const {
-  fetchCharacterById,
-  fetchComicsByCharacterId, fetchCharacters,
+  fetchCharacters,
 } = require('../services/characters');
 
-const getComicsByCharacterId = async (characterId, { offset, limit }) => {
-  try {
-    const { data } = await fetchComicsByCharacterId(characterId, { offset, limit });
-    return {
-      success: true,
-      ...data
-    }
-  } catch (err) {
-    return {
-      success: false,
-      msg: err?.response?.data?.message || err.msg
-    }
-  }
-};
+const pick = require('../utils/pick')
 
-const getCharacters = async ({ limit, offset }) => {
+const getCharacters = async ({ limit, offset, fields = [] }) => {
   try {
     const { data } = await fetchCharacters({ limit, offset });
     return {
+      ...data,
       success: true,
-      ...data
+      results: fields.length ? data.results.map(result => pick(result, fields)) : data.results
     }
   } catch (err) {
     return {
@@ -33,24 +20,7 @@ const getCharacters = async ({ limit, offset }) => {
   }
 }
 
-const getCharacterById = async (characterId) => {
-  try {
-    const { data } = await fetchCharacterById(characterId);
-    return {
-      success: true,
-      ...data
-    };
-  } catch (err) {
-   return {
-     success: false,
-     msg: err?.response?.data?.message || err.msg
-   }
-  }
-};
-
 
 module.exports = {
   getCharacters,
-  getCharacterById,
-  getComicsByCharacterId,
 };

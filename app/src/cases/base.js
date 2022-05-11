@@ -1,5 +1,5 @@
-import getCharacters from "./services/getCharacters";
-import createCharacterList from "./views/characterList";
+import getCharacters from "../services/api/v1/getCharacters";
+import createCharacterList from "../views/characterList";
 
 document.addEventListener('DOMContentLoaded', async () => {
   const characters = await getCharacters();

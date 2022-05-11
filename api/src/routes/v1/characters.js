@@ -1,4 +1,4 @@
-const { getCharacters, getCharacterById, getComicsByCharacterId } = require('../controllers/characters');
+const { getCharacters, getCharacterById, getComicsByCharacterId } = require('../../controllers/characters');
 
 const getCharactersRoute = async (req, res) => {
   const { query } = req;

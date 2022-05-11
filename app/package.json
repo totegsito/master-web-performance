@@ -27,19 +27,9 @@
   ],
   "license": "MIT",
   "name": "bulma-start",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jgthms/bulma-start.git"
-  },
   "scripts": {
-    "css-build": "node-sass _sass/main.scss css/main.css",
-    "css-deploy": "npm run css-build && npm run css-postcss",
-    "css-postcss": "postcss --use autoprefixer --output css/main.css css/main.css",
-    "css-watch": "npm run css-build -- --watch",
-    "deploy": "npm run css-deploy && npm run js-build",
-    "js-build": "parcel src/*",
-    "js-watch": "npm run js-build -- --watch",
-    "start": "npx parcel index.html"
+    "build": "npx parcel build index.html",
+    "start:dev": "npx parcel index.html"
   },
   "version": "0.0.4",
   "dependencies": {

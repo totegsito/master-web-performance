@@ -1,22 +1,15 @@
 const { Router } = require('express');
-//
-// const {
-//   getAllComics,
-//   getComicById,
-// } = require('./comics');
 
-const createCharacterRoutes = require('./characters');
+const v1Routes = require('./v1');
+const v2Routes = require('./v2');
 
 const router = Router();
 
-const createApiRoutes = () => {
-  createCharacterRoutes(router);
+const createRouter = (app) => {
+  app.use('/api/v1', v1Routes(app)(router));
+  app.use('/api/v2', v2Routes(app)(router));
   return router;
 };
 
-// router.get('/comics', getAllComics);
-// router.get('/comics/:comicId', getComicById);
-// router.get('/characters/:characterId', getCharacterById);
-// router.get('/characters/:characterId/comics', getComicsByCharacterId);
+module.exports = createRouter;
 
-module.exports = createApiRoutes();
