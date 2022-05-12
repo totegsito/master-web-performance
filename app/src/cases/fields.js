@@ -1,4 +1,4 @@
-import getCharacters from "../services/api/v1/getCharacters";
+import getCharacters from "../services/api/v2/getCharacters";
 import createCharacterList from "../views/characterList";
 import createPager from "../views/createPager";
 const defaultState = {
