@@ -1,9 +1,8 @@
 # Master Web Performance
 
 ## Requirements
-- Change MARVEL_API_KEY and MARVEL_SECRET_KEY keys of `api/.env` file to your own.
 
-
-## API Server
-
-The *API server* has been developed in Node.js with [`Express`](http://expressjs.com/es/) framework, [`redis` client](http://redis.js.org/) to connect and handle the cache system and [`axios`](https://github.com/axios/axios) to make http request to Marvel API.
+- Open /api
+- Copy `.env.example` and paste it as `.env`
+- Go to [Marvel Developer Portal](https://developer.marvel.com/) and get yor API Key and Secret Key
+- Paste them into your `.env
